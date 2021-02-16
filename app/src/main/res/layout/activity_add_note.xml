@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
+    android:padding="4dp"
     style="@style/ScreenBack"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddNoteActivity">
@@ -23,23 +23,31 @@
         app:layout_constraintRight_toRightOf="parent"
         android:inputType="textCapSentences" />
 
-    <EditText
-        android:id="@+id/body_edit"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@null"
-        android:textSize="20sp"
-        android:gravity="start|top"
-        android:hint="@string/body"
-        style="@style/textColor"
-        android:inputType="textMultiLine|textCapSentences"
-        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heading_edit"
-        android:autofillHints="Body" />
+        app:layout_constraintTop_toBottomOf="@id/heading_edit">
+
+        <EditText
+            android:id="@+id/body_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textSize="20sp"
+            android:gravity="start|top"
+            android:hint="@string/body"
+            style="@style/textColor"
+            android:inputType="textMultiLine|textCapSentences"
+            android:layout_marginStart="4dp"
+            android:autofillHints="Body" />
+
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
