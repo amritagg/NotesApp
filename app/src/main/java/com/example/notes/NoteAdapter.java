@@ -2,17 +2,20 @@ package com.example.notes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.notes.data.NotesEntity;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
     private static final String DATE_FORMAT = "dd MMM, YYYY  HH:mm:ss";
@@ -42,6 +45,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             String heading = notesEntity.getHeading();
             String body = notesEntity.getBody();
             String date = dateFormat.format(notesEntity.getLastUpdate());
+            holder.heading_view.setVisibility(View.VISIBLE);
+            holder.body_view.setVisibility(View.VISIBLE);
 
             if(heading.isEmpty()) holder.heading_view.setVisibility(View.GONE);
             else holder.heading_view.setText(heading);

@@ -41,4 +41,11 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.ItemC
         intent.putExtra(AddNoteActivity.EXTRA_NOTE_ID, itemId);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel.getNotes().observe(this, notesEntities -> mNoteAdapter.setTasks(notesEntities));
+    }
 }
