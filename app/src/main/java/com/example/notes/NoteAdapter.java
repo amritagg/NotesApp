@@ -48,8 +48,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             holder.heading_view.setVisibility(View.VISIBLE);
             holder.body_view.setVisibility(View.VISIBLE);
 
-            if(heading.isEmpty()) holder.heading_view.setVisibility(View.GONE);
-            else holder.heading_view.setText(heading);
+            if(heading.isEmpty()) {
+                holder.heading_view.setVisibility(View.GONE);
+                holder.body_view.setMaxLines(5);
+            } else {
+                holder.heading_view.setText(heading);
+                holder.body_view.setMaxLines(4);
+            }
 
             if(body.isEmpty()) holder.body_view.setVisibility(View.GONE);
             else holder.body_view.setText(body);
